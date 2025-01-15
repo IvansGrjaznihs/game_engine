@@ -1,4 +1,5 @@
 import json
+import time
 import subprocess
 from typing import Dict, Any, Optional
 import logging
@@ -104,6 +105,8 @@ class GameEngine:
                 if verbose:
                     print(f"Move {current_bot.name} ({self.current_symbol}): row={row}, col={col} => WIN!")
                     self.board.print_board(winning_line)
+                    # Pause here
+                    input("Press ENTER to continue...")
                 return 1 if current_bot == self.bot1 else 2
 
             # Check for draw
@@ -111,12 +114,19 @@ class GameEngine:
                 if verbose:
                     print(f"Move {current_bot.name} ({self.current_symbol}): row={row}, col={col} => DRAW!")
                     self.board.print_board()
+                    # Pause here
+                    input("Press ENTER to continue...")
                 return 0
 
             # Print move
             if verbose:
                 print(f"Move {current_bot.name} ({self.current_symbol}): row={row}, col={col}")
                 self.board.print_board()
+
+            # ---- CLEAR THE CONSOLE BEFORE NEXT TURN ----
+            # This ensures the console is clean for the next move's display
+            time.sleep(0.5)
+            self.board.clear_console()
 
             # Switch turns
             last_move_opponent = {"row": row, "col": col}

@@ -1,3 +1,4 @@
+import os
 from typing import List, Tuple, Optional
 from models import color_cell  # relative import of color_cell
 # or from models import color_cell if in the same folder without __init__.py
@@ -60,6 +61,15 @@ class Board:
                 return line
         return None
 
+    def clear_console(self) -> None:
+        """
+        Clears the console (Windows, macOS, Linux).
+        """
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            os.system("clear")
+            
     def print_board(self, winning_positions: Optional[List[Tuple[int,int]]] = None) -> None:
         """
         Print the board with optional highlight of winning_positions in green.
