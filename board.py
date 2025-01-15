@@ -1,4 +1,5 @@
 import os
+import time
 from typing import List, Tuple, Optional
 from models import color_cell  # relative import of color_cell
 # or from models import color_cell if in the same folder without __init__.py
@@ -65,6 +66,8 @@ class Board:
         """
         Clears the console (Windows, macOS, Linux).
         """
+        time.sleep(0.3)
+
         if os.name == "nt":
             os.system("cls")
         else:

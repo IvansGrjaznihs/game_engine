@@ -7,6 +7,10 @@
       {
         "name": "Python Bot #2",
         "command": "python bots\\python_bot\\python_bot.py"
+      },
+      {
+        "name": "CSharp Bot",
+        "command": "dotnet run --project bots\\csharp_bot\\csharp_bot\\csharp_bot.csproj"
       }
     ]
   }

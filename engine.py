@@ -56,11 +56,12 @@ class GameEngine:
 
         last_move_opponent = None
         move_number = 1
-
+        self.board.clear_console()
         self.setup_board()
 
+        game_opening = f"=== Start Game: {self.bot1.name} vs {self.bot2.name}, first: {current_bot.name} ===\n"
         if verbose:
-            print(f"=== Start Game: {self.bot1.name} vs {self.bot2.name}, first: {current_bot.name} ===\n")
+            print(game_opening)
             self.board.print_board()
 
         # Main loop
@@ -103,6 +104,8 @@ class GameEngine:
             winning_line = self.board.find_five_in_a_row(row, col, self.current_symbol)
             if winning_line:
                 if verbose:
+                    self.board.clear_console()
+                    print(game_opening)
                     print(f"Move {current_bot.name} ({self.current_symbol}): row={row}, col={col} => WIN!")
                     self.board.print_board(winning_line)
                     # Pause here
@@ -112,6 +115,8 @@ class GameEngine:
             # Check for draw
             if self.board.is_full():
                 if verbose:
+                    self.board.clear_console()
+                    print(game_opening)
                     print(f"Move {current_bot.name} ({self.current_symbol}): row={row}, col={col} => DRAW!")
                     self.board.print_board()
                     # Pause here
@@ -120,13 +125,10 @@ class GameEngine:
 
             # Print move
             if verbose:
+                self.board.clear_console()
+                print(game_opening)
                 print(f"Move {current_bot.name} ({self.current_symbol}): row={row}, col={col}")
                 self.board.print_board()
-
-            # ---- CLEAR THE CONSOLE BEFORE NEXT TURN ----
-            # This ensures the console is clean for the next move's display
-            time.sleep(0.5)
-            self.board.clear_console()
 
             # Switch turns
             last_move_opponent = {"row": row, "col": col}

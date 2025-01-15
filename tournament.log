@@ -1,5 +1,5 @@
-2025-01-15 11:22:27,012 [INFO] __main__ - Starting tournament...
-2025-01-15 11:22:27,013 [INFO] tournament - Match: Python Bot #1 vs Python Bot #2, scenario=SquareEmpty, first=1
-2025-01-15 11:23:09,718 [INFO] tournament - Match: Python Bot #1 vs Python Bot #2, scenario=SquareEmpty, first=2
-2025-01-15 11:23:39,486 [INFO] tournament - Match: Python Bot #1 vs Python Bot #2, scenario=RectangleWithStartPositions, first=1
-2025-01-15 11:24:01,801 [INFO] tournament - Match: Python Bot #1 vs Python Bot #2, scenario=RectangleWithStartPositions, first=2
+2025-01-15 12:12:08,443 [INFO] __main__ - Starting tournament...
+2025-01-15 12:12:08,444 [INFO] tournament - Match: Python Bot #1 vs Python Bot #2, scenario=SquareEmpty, first=1
+2025-01-15 12:12:28,374 [INFO] tournament - Match: Python Bot #1 vs Python Bot #2, scenario=SquareEmpty, first=2
+2025-01-15 12:12:47,718 [INFO] tournament - Match: Python Bot #1 vs Python Bot #2, scenario=RectangleWithStartPositions, first=1
+2025-01-15 12:13:11,530 [INFO] tournament - Match: Python Bot #1 vs Python Bot #2, scenario=RectangleWithStartPositions, first=2
