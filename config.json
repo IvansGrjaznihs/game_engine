@@ -1,0 +1,28 @@
+{
+    "scenarios": [
+      {
+        "name": "SquareEmpty",
+        "board_rows": 7,
+        "board_cols": 7,
+        "initial_positions": [ ]
+      },
+      {
+        "name": "RectangleWithStartPositions",
+        "board_rows": 5,
+        "board_cols": 10,
+        "initial_positions": [
+            {
+                "row": 3,
+                "col": 3,
+                "symbol": "X"
+              },
+              {
+                "row": 1,
+                "col": 2,
+                "symbol": "O"
+              }
+        ]
+      }      
+    ]
+  }
+  

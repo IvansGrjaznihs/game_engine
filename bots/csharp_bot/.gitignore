@@ -1,0 +1,10 @@
+# Build files
+bin/
+obj/
+
+# VS Code settings
+.vscode/
+
+# OS-specific
+*.DS_Store
+*.swp

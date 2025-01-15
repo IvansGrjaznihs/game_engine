@@ -1,0 +1,15 @@
+{
+    "boardSize": 5,
+    "board": [
+      ["", "", "X", "", ""],
+      ["", "O", "", "", ""],
+      ["", "", "", "", ""],
+      ["", "", "", "", ""],
+      ["", "", "", "", ""]
+    ],
+    "mySymbol": "X",
+    "opponentSymbol": "O",
+    "lastMoveOpponent": {"row": 1, "col": 1},
+    "moveNumber": 3
+}
+  
