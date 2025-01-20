@@ -1,14 +1,14 @@
 ﻿using System.Text;
-using System.Text.Json; // Для парсинга JSON
+using System.Text.Json; // JSON parsing
 using System.Text.Json.Serialization;
 
 namespace CSharpBot
 {
-    // Модель входных данных
+    // Input Data model
     public class InputData
     {
         [JsonPropertyName("boardSize")]
-        public int BoardSize { get; set; }  // можно использовать, если нужно
+        public int BoardSize { get; set; }
 
         [JsonPropertyName("board")]
         public string[][] Board { get; set; } = default!;
@@ -26,7 +26,7 @@ namespace CSharpBot
         public int MoveNumber { get; set; }
     }
 
-    // Модель для последнего хода соперника
+    // Opponent's last move model
     public class Move
     {
         [JsonPropertyName("row")]
@@ -36,7 +36,7 @@ namespace CSharpBot
         public int Col { get; set; }
     }
 
-    // Модель выходных данных (ответ бота)
+    // Bot Response model
     public class BotResponse
     {
         [JsonPropertyName("move")]
@@ -50,10 +50,10 @@ namespace CSharpBot
     {
         public static void Main(string[] args)
         {
-            // Читаем всё из stdin
+            // Read input JSON from stdin
             string inputJson = Console.In.ReadToEnd();
 
-            // Парсим
+            // Parse input JSON
             InputData? inputData;
             try
             {
@@ -67,17 +67,16 @@ namespace CSharpBot
             }
             catch
             {
-                // Невалидный JSON
+                // Not a valid JSON
                 Console.WriteLine("{\"error\":\"JSON parse error\"}");
                 return;
             }
 
-            // Действуем: ищем случайный пустой ход (для примера)
-            // Или можно реализовать любую стратегию
+            // Do: implement your bot logic here
             var random = new Random();
             var board = inputData.Board;
 
-            // Собираем список пустых клеток
+            // Get all empty cells
             List<Move> emptyCells = new();
             for (int r = 0; r < board.Length; r++)
             {
@@ -93,7 +92,7 @@ namespace CSharpBot
             Move chosenMove;
             if (emptyCells.Count == 0)
             {
-                // Нет свободных клеток — вернём ход -1,-1 (нас дисквалифицируют, но что поделать)
+                // No empty cells. Return -1, -1
                 chosenMove = new Move { Row = -1, Col = -1 };
             }
             else
@@ -107,10 +106,10 @@ namespace CSharpBot
                 DebugInfo = $"Random move for {inputData.MySymbol}"
             };
 
-            // Серриализуем в JSON
+            // Serialize response to JSON
             string outputJson = JsonSerializer.Serialize(response);
 
-            // Вывод в stdout
+            // Output response JSON to stdout
             Console.OutputEncoding = Encoding.UTF8;
             Console.WriteLine(outputJson);
         }
